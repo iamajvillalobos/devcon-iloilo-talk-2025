@@ -14,8 +14,8 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #0a0a0a;
-            color: #ffffff;
+            background: #000000; /* neutral-950 */
+            color: #fafafa; /* neutral-50 */
             overflow: hidden;
         }
 
@@ -28,7 +28,7 @@
             align-items: center;
             padding: 60px;
             position: relative;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+            background: linear-gradient(135deg, #000000 0%, #171717 100%); /* neutral-950 to neutral-900 */
         }
 
         .slide.active {
@@ -36,40 +36,40 @@
         }
 
         h1 {
-            font-size: 4em;
+            font-size: 3.75rem; /* text-6xl */
             font-weight: 800;
             margin-bottom: 30px;
             text-align: center;
-            background: linear-gradient(45deg, #00d4ff, #0099ff);
+            background: linear-gradient(45deg, #fafafa, #e5e5e5); /* neutral-50 to neutral-200 */
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             line-height: 1.2;
         }
 
         h2 {
-            font-size: 3em;
+            font-size: 3rem; /* text-5xl */
             font-weight: 700;
             margin-bottom: 40px;
             text-align: center;
-            color: #00d4ff;
+            color: #f5f5f5; /* neutral-100 */
         }
 
         h3 {
-            font-size: 2em;
+            font-size: 1.875rem; /* text-3xl */
             font-weight: 600;
             margin-bottom: 20px;
-            color: #0099ff;
+            color: #e5e5e5; /* neutral-200 */
         }
 
         p, li {
-            font-size: 1.8em;
-            line-height: 1.6;
+            font-size: 1.125rem; /* text-lg */
+            line-height: 1.75; /* leading-7 */
             margin-bottom: 20px;
         }
 
         .subtitle {
-            font-size: 2em;
-            color: #888;
+            font-size: 1.5rem; /* text-2xl */
+            color: #737373; /* neutral-500 */
             margin-bottom: 40px;
         }
 
@@ -87,8 +87,8 @@
         }
 
         .vs-box {
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: #171717; /* neutral-900 */
+            border: 2px solid #262626; /* neutral-800 */
             border-radius: 20px;
             padding: 40px;
             margin: 20px auto;
@@ -96,12 +96,12 @@
         }
 
         .code-block {
-            background: #1e1e1e;
-            border: 1px solid #333;
+            background: #171717; /* neutral-900 */
+            border: 1px solid #404040; /* neutral-700 */
             border-radius: 10px;
             padding: 30px;
             font-family: 'Monaco', 'Consolas', monospace;
-            font-size: 1.4em;
+            font-size: 0.875rem; /* text-sm */
             margin: 20px 0;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             max-width: 900px;
@@ -109,19 +109,19 @@
         }
 
         .prompt {
-            color: #00ff88;
+            color: #a3a3a3; /* neutral-400 */
         }
 
         .demo-step {
-            background: rgba(0, 153, 255, 0.1);
-            border-left: 4px solid #0099ff;
+            background: #171717; /* neutral-900 */
+            border-left: 4px solid #525252; /* neutral-600 */
             padding: 20px 30px;
             margin: 20px 0;
             border-radius: 0 10px 10px 0;
         }
 
         .emoji {
-            font-size: 2em;
+            font-size: 1.5rem; /* text-2xl */
             margin: 0 10px;
         }
 
@@ -132,28 +132,26 @@
 
         ul li:before {
             content: "→ ";
-            color: #00d4ff;
+            color: #a3a3a3; /* neutral-400 */
             font-weight: bold;
             margin-right: 10px;
         }
 
         .highlight {
-            background: linear-gradient(45deg, #ff0080, #ff0040);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #fafafa; /* neutral-50 */
             font-weight: 800;
         }
 
         .qr-placeholder {
             width: 300px;
             height: 300px;
-            background: #fff;
+            background: #fafafa; /* neutral-50 */
             border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #000;
-            font-size: 1.5em;
+            font-size: 1rem; /* text-base */
             margin: 40px auto;
             padding: 20px;
         }
@@ -167,8 +165,8 @@
             position: absolute;
             bottom: 20px;
             right: 20px;
-            font-size: 1.2em;
-            color: #666;
+            font-size: 0.875rem; /* text-sm */
+            color: #525252; /* neutral-600 */
         }
 
         .nav {
@@ -182,17 +180,17 @@
         }
 
         .nav button {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: white;
+            background: #262626; /* neutral-800 */
+            border: 1px solid #404040; /* neutral-700 */
+            color: #fafafa; /* neutral-50 */
             padding: 10px 20px;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 1em;
+            font-size: 0.875rem; /* text-sm */
         }
 
         .nav button:hover {
-            background: rgba(255, 255, 255, 0.2);
+            background: #404040; /* neutral-700 */
         }
 
         .feature-grid {
@@ -204,10 +202,10 @@
         }
 
         .feature-box {
-            background: rgba(255, 255, 255, 0.05);
+            background: #171717; /* neutral-900 */
             padding: 30px;
             border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid #262626; /* neutral-800 */
         }
 
         @keyframes fadeIn {
@@ -226,7 +224,7 @@
         <h1>Creative Coding with Generative AI</h1>
         <p class="subtitle">From Prompts to Prototypes</p>
         <p style="margin-top: 60px; font-size: 1.5em;">AJ Villalobos</p>
-        <p style="font-size: 1.2em; color: #666;">Shiftcare | Bruskoffee | Arqen</p>
+        <p style="font-size: 0.875rem; color: #525252;">Shiftcare | Bruskoffee | Arqen</p>
         <div class="slide-number">1 / 15</div>
     </div>
 
@@ -239,7 +237,7 @@
                 <span class="highlight">2-3x faster</span><br>
                 with AI assistance
             </p>
-            <p style="font-size: 1.6em; color: #888; margin-top: 30px;">Not magic, but a powerful tool</p>
+            <p style="font-size: 1.25rem; color: #737373; margin-top: 30px;">Not magic, but a powerful tool</p>
         </div>
         <div class="slide-number">2 / 15</div>
     </div>
@@ -248,10 +246,10 @@
     <div class="slide">
         <h2>Live Demo</h2>
         <div class="animate">
-            <h1 style="font-size: 3em; margin: 30px 0; color: #00d4ff;">"How Much?"</h1>
+            <h1 style="font-size: 2.25rem; margin: 30px 0;">"How Much?"</h1>
             <p style="font-size: 1.8em; margin: 20px 0;">Expense Splitter for Barkada</p>
-            <p style="font-size: 1.6em; color: #888; margin-top: 40px;">Building core functionality</p>
-            <p style="font-size: 1.6em; color: #888;">Live with AI assistance</p>
+            <p style="font-size: 1.25rem; color: #737373; margin-top: 40px;">Building core functionality</p>
+            <p style="font-size: 1.25rem; color: #737373;">Live with AI assistance</p>
         </div>
         <div class="slide-number">3 / 15</div>
     </div>
@@ -267,7 +265,7 @@
                 <li>Debugging & Testing: <strong>2-3 hours</strong></li>
                 <li>UI/UX Polish: <strong>1-2 hours</strong></li>
             </ul>
-            <p style="font-size: 1.5em; color: #888; margin-top: 40px; text-align: center;">
+            <p style="font-size: 1.5rem; color: #737373; margin-top: 40px; text-align: center;">
                 Total: 8-12 hours for working prototype
             </p>
         </div>
@@ -285,10 +283,10 @@
                 <li>AI helps debug/refine: <strong>30 minutes</strong></li>
                 <li>Polish with AI: <strong>30 minutes</strong></li>
             </ul>
-            <p style="font-size: 1.5em; color: #00ff88; margin-top: 40px; text-align: center;">
+            <p style="font-size: 1.5rem; color: #fafafa; margin-top: 40px; text-align: center;">
                 Total: 2-4 hours for same prototype
             </p>
-            <p style="font-size: 1.2em; color: #888; margin-top: 20px; text-align: center;">
+            <p style="font-size: 1rem; color: #737373; margin-top: 20px; text-align: center;">
                 ~3x faster, not 100x
             </p>
         </div>
@@ -312,7 +310,7 @@
                 </ul>
             </div>
             
-            <p style="font-size: 1.6em; color: #00d4ff; text-align: center; margin-top: 30px;">
+            <p style="font-size: 1.25rem; color: #fafafa; text-align: center; margin-top: 30px;">
                 Not just suggestions - actual implementation
             </p>
         </div>
@@ -329,10 +327,10 @@
                 <p style="font-size: 1.5em; margin: 15px 0;">🍖 Pedro orders Pork BBQ - ₱200</p>
                 <p style="font-size: 1.5em; margin: 15px 0;">🍽️ Maria didn't order but <span style="color: #00d4ff;">"nakikain"</span> from both</p>
             </div>
-            <p style="font-size: 1.8em; color: #ff0080; margin-top: 30px; text-align: center;">
+            <p style="font-size: 1.25rem; color: #fafafa; margin-top: 30px; text-align: center;">
                 How much should each person pay?
             </p>
-            <p style="font-size: 1.4em; color: #888; text-align: center; margin-top: 15px;">
+            <p style="font-size: 1rem; color: #737373; text-align: center; margin-top: 15px;">
                 Let's solve this in 5 minutes with AI
             </p>
         </div>
@@ -347,12 +345,12 @@
                 Be specific about what you want
             </p>
             <div class="code-block" style="margin: 30px auto;">
-                <p style="font-size: 1.4em; color: #ff4444;">❌ Vague: "Make an app for splitting bills"</p>
+                <p style="font-size: 1rem; color: #a3a3a3;">❌ Vague: "Make an app for splitting bills"</p>
             </div>
             <div class="code-block" style="margin: 30px auto; border-color: #00ff88;">
-                <p style="font-size: 1.4em; color: #00ff88;">✅ Better: "Create an expense splitter that handles shared food orders where some people eat from others' plates"</p>
+                <p style="font-size: 1rem; color: #fafafa;">✅ Better: "Create an expense splitter that handles shared food orders where some people eat from others' plates"</p>
             </div>
-            <p style="font-size: 1.5em; color: #888; margin-top: 40px;">
+            <p style="font-size: 1.125rem; color: #737373; margin-top: 40px;">
                 The clearer your request, the better the result
             </p>
         </div>
@@ -363,14 +361,14 @@
     <div class="slide">
         <h2>Pro Tip #1</h2>
         <div class="animate" style="text-align: center;">
-            <h1 style="font-size: 2.5em; margin: 30px 0; color: #00d4ff;">Start Simple, Iterate Fast</h1>
+            <h1 style="font-size: 2.25rem; margin: 30px 0;">Start Simple, Iterate Fast</h1>
             <p style="font-size: 1.6em; margin: 20px 0; line-height: 1.4;">
                 Don't try to describe everything at once
             </p>
             <div style="margin-top: 30px;">
-                <p style="font-size: 1.5em; color: #888; margin: 15px 0;">First: "Create expense splitter"</p>
-                <p style="font-size: 1.5em; color: #888; margin: 15px 0;">Then: "Add shared food calculation"</p>
-                <p style="font-size: 1.5em; color: #888; margin: 15px 0;">Then: "Add Gcash QR codes"</p>
+                <p style="font-size: 1.125rem; color: #737373; margin: 15px 0;">First: "Create expense splitter"</p>
+                <p style="font-size: 1.125rem; color: #737373; margin: 15px 0;">Then: "Add shared food calculation"</p>
+                <p style="font-size: 1.125rem; color: #737373; margin: 15px 0;">Then: "Add Gcash QR codes"</p>
             </div>
         </div>
         <div class="slide-number">9 / 15</div>
@@ -380,7 +378,7 @@
     <div class="slide">
         <h2>Pro Tip #2</h2>
         <div class="animate" style="text-align: center;">
-            <h1 style="font-size: 2.5em; margin: 30px 0; color: #00d4ff;">Be Specific About Requirements</h1>
+            <h1 style="font-size: 2.25rem; margin: 30px 0;">Be Specific About Requirements</h1>
             <p style="font-size: 1.6em; margin: 20px 0; line-height: 1.4;">
                 Details matter for better results
             </p>
@@ -398,7 +396,7 @@
     <div class="slide">
         <h2>Pro Tip #3</h2>
         <div class="animate" style="text-align: center;">
-            <h1 style="font-size: 2.5em; margin: 30px 0; color: #00d4ff;">Use AI to Learn New Tech</h1>
+            <h1 style="font-size: 2.25rem; margin: 30px 0;">Use AI to Learn New Tech</h1>
             <p style="font-size: 1.6em; margin: 20px 0; line-height: 1.4;">
                 Perfect for exploring frameworks
             </p>
@@ -415,16 +413,16 @@
     <div class="slide">
         <h2>Pro Tip #4</h2>
         <div class="animate" style="text-align: center;">
-            <h1 style="font-size: 2.5em; margin: 30px 0; color: #00d4ff;">Review Generated Code</h1>
+            <h1 style="font-size: 2.25rem; margin: 30px 0;">Review Generated Code</h1>
             <p style="font-size: 1.6em; margin: 20px 0; line-height: 1.4;">
                 Understand what's created
             </p>
             <div style="margin-top: 30px;">
-                <p style="font-size: 1.5em; color: #00ff88; margin: 15px 0;">✅ Read the code</p>
-                <p style="font-size: 1.5em; color: #00ff88; margin: 15px 0;">✅ Test edge cases</p>
-                <p style="font-size: 1.5em; color: #00ff88; margin: 15px 0;">✅ Make it yours</p>
+                <p style="font-size: 1.125rem; color: #fafafa; margin: 15px 0;">✅ Read the code</p>
+                <p style="font-size: 1.125rem; color: #fafafa; margin: 15px 0;">✅ Test edge cases</p>
+                <p style="font-size: 1.125rem; color: #fafafa; margin: 15px 0;">✅ Make it yours</p>
             </div>
-            <p style="font-size: 1.4em; color: #888; margin-top: 20px;">AI is your partner, not your replacement</p>
+            <p style="font-size: 1rem; color: #737373; margin-top: 20px;">AI is your partner, not your replacement</p>
         </div>
         <div class="slide-number">12 / 15</div>
     </div>
@@ -437,13 +435,13 @@
             <div class="column" style="text-align: center;">
                 <div class="qr-placeholder" id="qr-container" style="margin: 0 auto;">
                 </div>
-                <p style="font-size: 1.4em; color: #888; margin-top: 20px;">
+                <p style="font-size: 1rem; color: #737373; margin-top: 20px;">
                     GitHub: github.com/iamajvillalobos
                 </p>
             </div>
             
             <div class="column">
-                <p style="font-size: 1.8em; margin-bottom: 30px; color: #00d4ff;">Start building TODAY</p>
+                <p style="font-size: 1.25rem; margin-bottom: 30px; color: #fafafa;">Start building TODAY</p>
                 <p style="font-size: 1.5em; margin: 15px 0;">✅ Clone the repo</p>
                 <p style="font-size: 1.5em; margin: 15px 0;">✅ Try Claude Code</p>
                 <p style="font-size: 1.5em; margin: 15px 0;">✅ Build your idea</p>
@@ -459,10 +457,10 @@
     <div class="slide">
         <h2>Key Takeaways</h2>
         <div class="animate">
-            <p style="font-size: 1.5em; margin: 20px 0;"><span class="emoji" style="font-size: 1.5em;">🚀</span> 2-3x faster development (realistic)</p>
-            <p style="font-size: 1.5em; margin: 20px 0;"><span class="emoji" style="font-size: 1.5em;">🧠</span> AI accelerates implementation, not planning</p>
-            <p style="font-size: 1.5em; margin: 20px 0;"><span class="emoji" style="font-size: 1.5em;">🤝</span> Best for boilerplate & repetitive tasks</p>
-            <p style="font-size: 1.5em; margin: 20px 0;"><span class="emoji" style="font-size: 1.5em;">⚡</span> Still need software engineering skills</p>
+            <p style="font-size: 1.125rem; margin: 20px 0;"><span class="emoji">🚀</span> 2-3x faster development (realistic)</p>
+            <p style="font-size: 1.125rem; margin: 20px 0;"><span class="emoji">🧠</span> AI accelerates implementation, not planning</p>
+            <p style="font-size: 1.125rem; margin: 20px 0;"><span class="emoji">🤝</span> Best for boilerplate & repetitive tasks</p>
+            <p style="font-size: 1.125rem; margin: 20px 0;"><span class="emoji">⚡</span> Still need software engineering skills</p>
         </div>
         <div class="slide-number">14 / 15</div>
     </div>
@@ -474,7 +472,7 @@
             <p style="font-size: 2em; margin: 40px 0;">Questions?</p>
             <p style="font-size: 1.6em; margin: 20px 0;">📧 hello@ajvillalobos.com</p>
             <p style="font-size: 1.6em; margin: 20px 0;">💻 github.com/iamajvillalobos</p>
-            <p style="font-size: 1.8em; margin-top: 60px; color: #00d4ff;">
+            <p style="font-size: 1.25rem; margin-top: 60px; color: #fafafa;">
                 "The best time to start was yesterday.<br>
                 The second best time is now."
             </p>
