@@ -216,19 +216,71 @@
         .animate {
             animation: fadeIn 0.6s ease-out;
         }
+
+        .progress-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            height: 4px;
+            background: #00d4ff;
+            transition: width 0.3s ease;
+            z-index: 1001;
+        }
     </style>
 </head>
 <body>
     <!-- Slide 1: Title -->
     <div class="slide active">
-        <h1>Creative Coding with Generative AI</h1>
-        <p class="subtitle">From Prompts to Prototypes</p>
-        <p style="margin-top: 60px; font-size: 1.5em;">AJ Villalobos</p>
-        <p style="font-size: 0.875rem; color: #525252;">Shiftcare | Bruskoffee | Arqen</p>
-        <div class="slide-number">1 / 15</div>
+        <div style="text-align: center;">
+            <h1 style="font-size: 4.5rem; margin-bottom: 40px;">Creative Coding with Generative AI</h1>
+            <p class="subtitle" style="font-size: 2.25rem; margin-bottom: 80px;">From Prompts to Prototypes</p>
+            <div style="margin-top: 60px;">
+                <p style="font-size: 2.5rem; font-weight: 600; margin-bottom: 20px;">AJ Villalobos</p>
+                <p style="font-size: 1.25rem; color: #737373;">Shiftcare | Bruskoffee | Arqen</p>
+            </div>
+        </div>
+        <div class="slide-number">1 / 18</div>
     </div>
 
-    <!-- Slide 2: The Promise -->
+    <!-- Slide 2: Hook -->
+    <div class="slide">
+        <div class="animate" style="text-align: center;">
+            <h1 style="font-size: 2.5rem; margin-bottom: 60px; line-height: 1.4;">
+                How many hours did you spend<br>
+                on your last side project?
+            </h1>
+            <p style="font-size: 1.5rem; color: #737373; margin: 40px 0;">
+                Weeks? Months? Still ongoing?
+            </p>
+            <div style="margin-top: 80px;">
+                <p style="font-size: 1.75rem; color: #fafafa;">
+                    What if you could build it<br>
+                    <span class="highlight" style="font-size: 2rem;">in one weekend instead?</span>
+                </p>
+            </div>
+        </div>
+        <div class="slide-number">2 / 18</div>
+    </div>
+
+    <!-- Slide 3: What We'll Cover -->
+    <div class="slide">
+        <h2>What We'll Cover</h2>
+        <div class="animate" style="max-width: 800px; margin: 0 auto;">
+            <ul style="font-size: 1.25rem; line-height: 2;">
+                <li><strong>Demo:</strong> Watch an expense splitter come to life with AI</li>
+                <li><strong>Realistic Expectations:</strong> 2-3x faster, not 100x</li>
+                <li><strong>When to Use AI:</strong> Best practices and limitations</li>
+                <li><strong>Practical Tips:</strong> How to talk to your AI developer</li>
+                <li><strong>Real Examples:</strong> Code patterns that work well with AI</li>
+            </ul>
+            <p style="font-size: 1.125rem; color: #737373; margin-top: 40px; text-align: center;">
+                Let's separate hype from reality
+            </p>
+        </div>
+        <div class="slide-number">3 / 18</div>
+    </div>
+
+    <!-- Slide 4: The Promise -->
     <div class="slide">
         <h2>The Reality</h2>
         <div class="animate">
@@ -239,10 +291,10 @@
             </p>
             <p style="font-size: 1.25rem; color: #737373; margin-top: 30px;">Not magic, but a powerful tool</p>
         </div>
-        <div class="slide-number">2 / 15</div>
+        <div class="slide-number">4 / 18</div>
     </div>
 
-    <!-- Slide 3: Live Demo Preview -->
+    <!-- Slide 5: Live Demo Preview -->
     <div class="slide">
         <h2>Live Demo</h2>
         <div class="animate">
@@ -251,10 +303,10 @@
             <p style="font-size: 1.25rem; color: #737373; margin-top: 40px;">Building core functionality</p>
             <p style="font-size: 1.25rem; color: #737373;">Live with AI assistance</p>
         </div>
-        <div class="slide-number">3 / 15</div>
+        <div class="slide-number">5 / 18</div>
     </div>
 
-    <!-- Slide 4: The Old Way -->
+    <!-- Slide 6: The Old Way -->
     <div class="slide">
         <h2>The Traditional Way</h2>
         <div class="vs-box animate">
@@ -269,10 +321,10 @@
                 Total: 8-12 hours for working prototype
             </p>
         </div>
-        <div class="slide-number">4 / 15</div>
+        <div class="slide-number">6 / 18</div>
     </div>
 
-    <!-- Slide 5: The AI Way -->
+    <!-- Slide 7: The AI Way -->
     <div class="slide">
         <h2>The AI-Assisted Way</h2>
         <div class="vs-box animate">
@@ -290,10 +342,10 @@
                 ~3x faster, not 100x
             </p>
         </div>
-        <div class="slide-number">5 / 15</div>
+        <div class="slide-number">7 / 18</div>
     </div>
 
-    <!-- Slide 6: What is Agentic Coding? -->
+    <!-- Slide 8: What is Agentic Coding? -->
     <div class="slide">
         <h2>What is Agentic Coding?</h2>
         <div class="animate">
@@ -314,10 +366,10 @@
                 Not just suggestions - actual implementation
             </p>
         </div>
-        <div class="slide-number">6 / 15</div>
+        <div class="slide-number">8 / 18</div>
     </div>
 
-    <!-- Slide 7: Demo Introduction -->
+    <!-- Slide 9: Demo Introduction -->
     <div class="slide">
         <h2>Let's Build: "How Much?"</h2>
         <div class="animate">
@@ -334,10 +386,10 @@
                 Let's solve this in 5 minutes with AI
             </p>
         </div>
-        <div class="slide-number">7 / 15</div>
+        <div class="slide-number">9 / 18</div>
     </div>
 
-    <!-- Slide 8: How to Talk to AI -->
+    <!-- Slide 10: How to Talk to AI -->
     <div class="slide">
         <h2>How to Talk to Your AI Developer</h2>
         <div class="animate" style="text-align: center;">
@@ -354,10 +406,10 @@
                 The clearer your request, the better the result
             </p>
         </div>
-        <div class="slide-number">8 / 15</div>
+        <div class="slide-number">10 / 18</div>
     </div>
 
-    <!-- Slide 9: Pro Tip 1 -->
+    <!-- Slide 11: Pro Tip 1 -->
     <div class="slide">
         <h2>Pro Tip #1</h2>
         <div class="animate" style="text-align: center;">
@@ -371,10 +423,10 @@
                 <p style="font-size: 1.125rem; color: #737373; margin: 15px 0;">Then: "Add Gcash QR codes"</p>
             </div>
         </div>
-        <div class="slide-number">9 / 15</div>
+        <div class="slide-number">11 / 18</div>
     </div>
 
-    <!-- Slide 10: Pro Tip 2 -->
+    <!-- Slide 12: Pro Tip 2 -->
     <div class="slide">
         <h2>Pro Tip #2</h2>
         <div class="animate" style="text-align: center;">
@@ -389,10 +441,10 @@
                 <p style="font-size: 1.4em; color: #00ff88;">✅ "Add Gcash QR generator with amount"</p>
             </div>
         </div>
-        <div class="slide-number">10 / 15</div>
+        <div class="slide-number">12 / 18</div>
     </div>
 
-    <!-- Slide 11: Pro Tip 3 -->
+    <!-- Slide 13: Pro Tip 3 -->
     <div class="slide">
         <h2>Pro Tip #3</h2>
         <div class="animate" style="text-align: center;">
@@ -406,10 +458,10 @@
                 <p style="font-size: 1.5em; margin: 15px 0;">"Add Tailwind CSS styling"</p>
             </div>
         </div>
-        <div class="slide-number">11 / 15</div>
+        <div class="slide-number">13 / 18</div>
     </div>
 
-    <!-- Slide 12: Pro Tip 4 -->
+    <!-- Slide 14: Pro Tip 4 -->
     <div class="slide">
         <h2>Pro Tip #4</h2>
         <div class="animate" style="text-align: center;">
@@ -424,11 +476,11 @@
             </div>
             <p style="font-size: 1rem; color: #737373; margin-top: 20px;">AI is your partner, not your replacement</p>
         </div>
-        <div class="slide-number">12 / 15</div>
+        <div class="slide-number">14 / 18</div>
     </div>
 
 
-    <!-- Slide 13: Your Turn -->
+    <!-- Slide 15: Your Turn -->
     <div class="slide">
         <h2>Your Turn!</h2>
         <div class="two-column animate" style="align-items: center; gap: 60px;">
@@ -450,10 +502,10 @@
                 </p>
             </div>
         </div>
-        <div class="slide-number">13 / 15</div>
+        <div class="slide-number">15 / 18</div>
     </div>
 
-    <!-- Slide 14: Key Takeaways -->
+    <!-- Slide 16: Key Takeaways -->
     <div class="slide">
         <h2>Key Takeaways</h2>
         <div class="animate">
@@ -462,10 +514,39 @@
             <p style="font-size: 1.125rem; margin: 20px 0;"><span class="emoji">🤝</span> Best for boilerplate & repetitive tasks</p>
             <p style="font-size: 1.125rem; margin: 20px 0;"><span class="emoji">⚡</span> Still need software engineering skills</p>
         </div>
-        <div class="slide-number">14 / 15</div>
+        <div class="slide-number">16 / 18</div>
     </div>
 
-    <!-- Slide 15: Thank You -->
+    <!-- Slide 17: From Weekend Projects to Side Business -->
+    <div class="slide">
+        <h2>The Real Game Changer</h2>
+        <div class="animate" style="text-align: center;">
+            <p style="font-size: 1.5rem; margin: 40px 0; line-height: 1.6;">
+                Weekend projects can now become<br>
+                <span class="highlight" style="font-size: 1.75rem;">real businesses</span>
+            </p>
+            <div style="max-width: 700px; margin: 40px auto;">
+                <p style="font-size: 1.125rem; color: #fafafa; margin: 20px 0;">
+                    ✨ Build MVP in a weekend instead of months
+                </p>
+                <p style="font-size: 1.125rem; color: #fafafa; margin: 20px 0;">
+                    🚀 Test ideas quickly with real users
+                </p>
+                <p style="font-size: 1.125rem; color: #fafafa; margin: 20px 0;">
+                    💡 Iterate based on feedback, not assumptions
+                </p>
+                <p style="font-size: 1.125rem; color: #fafafa; margin: 20px 0;">
+                    💼 Turn validated ideas into income streams
+                </p>
+            </div>
+            <p style="font-size: 1rem; color: #737373; margin-top: 40px;">
+                The barrier between idea and execution has never been lower
+            </p>
+        </div>
+        <div class="slide-number">17 / 18</div>
+    </div>
+
+    <!-- Slide 18: Thank You -->
     <div class="slide">
         <h1>Salamat!</h1>
         <div class="animate">
@@ -477,7 +558,7 @@
                 The second best time is now."
             </p>
         </div>
-        <div class="slide-number">15 / 15</div>
+        <div class="slide-number">18 / 18</div>
     </div>
 
     <!-- Navigation -->
@@ -485,6 +566,9 @@
         <button onclick="previousSlide()">← Previous</button>
         <button onclick="nextSlide()">Next →</button>
     </div>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progress-bar"></div>
 
     <script>
         let currentSlide = 0;
@@ -503,6 +587,15 @@
                     el.style.animation = `fadeIn 0.6s ease-out ${index * 0.1}s both`;
                 }, 10);
             });
+            
+            // Update progress bar
+            updateProgressBar();
+        }
+        
+        function updateProgressBar() {
+            const progressBar = document.getElementById('progress-bar');
+            const progress = ((currentSlide + 1) / slides.length) * 100;
+            progressBar.style.width = progress + '%';
         }
 
         function nextSlide() {
@@ -565,6 +658,9 @@
                     else qrContainer.appendChild(canvas);
                 });
             }
+            
+            // Initialize progress bar
+            updateProgressBar();
         });
     </script>
 </body>
