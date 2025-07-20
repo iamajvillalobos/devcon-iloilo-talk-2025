@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Creative Coding with Generative AI - Devcon Iloilo</title>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -161,6 +162,12 @@
             color: #000;
             font-size: 1.5em;
             margin: 40px auto;
+            padding: 20px;
+        }
+
+        .qr-placeholder canvas {
+            max-width: 100%;
+            height: auto;
         }
 
         .slide-number {
@@ -430,9 +437,7 @@
         <h2>Your Turn!</h2>
         <div class="two-column animate" style="align-items: center; gap: 60px;">
             <div class="column" style="text-align: center;">
-                <div class="qr-placeholder" style="margin: 0 auto;">
-                    [QR Code]<br>
-                    Get the code & slides
+                <div class="qr-placeholder" id="qr-container" style="margin: 0 auto;">
                 </div>
                 <p style="font-size: 1.4em; color: #888; margin-top: 20px;">
                     GitHub: github.com/iamajvillalobos
@@ -547,6 +552,24 @@
                 previousSlide();
             }
         }
+
+        // Generate QR code when page loads
+        window.addEventListener('DOMContentLoaded', () => {
+            const qrContainer = document.getElementById('qr-container');
+            if (qrContainer) {
+                QRCode.toCanvas('https://github.com/iamajvillalobos/devcon-iloilo-talk-2025', {
+                    width: 260,
+                    margin: 2,
+                    color: {
+                        dark: '#000000',
+                        light: '#FFFFFF'
+                    }
+                }, function (error, canvas) {
+                    if (error) console.error(error);
+                    else qrContainer.appendChild(canvas);
+                });
+            }
+        });
     </script>
 </body>
 </html>
