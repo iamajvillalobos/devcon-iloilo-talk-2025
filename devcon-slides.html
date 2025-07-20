@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Coding with Generative AI - Devcon Iloilo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow: hidden;
+        }
+
+        .slide {
+            width: 100vw;
+            height: 100vh;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 60px;
+            position: relative;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+        }
+
+        .slide.active {
+            display: flex;
+        }
+
+        h1 {
+            font-size: 4em;
+            font-weight: 800;
+            margin-bottom: 30px;
+            text-align: center;
+            background: linear-gradient(45deg, #00d4ff, #0099ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 3em;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+            color: #00d4ff;
+        }
+
+        h3 {
+            font-size: 2em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #0099ff;
+        }
+
+        p, li {
+            font-size: 1.8em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .subtitle {
+            font-size: 2em;
+            color: #888;
+            margin-bottom: 40px;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            width: 100%;
+            max-width: 1400px;
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .vs-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 20px 0;
+        }
+
+        .old-way {
+            border-color: #ff4444;
+        }
+
+        .new-way {
+            border-color: #00ff88;
+        }
+
+        .code-block {
+            background: #1e1e1e;
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 30px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 1.4em;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .prompt {
+            color: #00ff88;
+        }
+
+        .demo-step {
+            background: rgba(0, 153, 255, 0.1);
+            border-left: 4px solid #0099ff;
+            padding: 20px 30px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .emoji {
+            font-size: 2em;
+            margin: 0 10px;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul li:before {
+            content: "→ ";
+            color: #00d4ff;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .highlight {
+            background: linear-gradient(45deg, #ff0080, #ff0040);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        .qr-placeholder {
+            width: 300px;
+            height: 300px;
+            background: #fff;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            font-size: 1.5em;
+            margin: 40px auto;
+        }
+
+        .slide-number {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 1.2em;
+            color: #666;
+        }
+
+        .nav {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            z-index: 1000;
+        }
+
+        .nav button {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        .nav button:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .feature-box {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate {
+            animation: fadeIn 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Slide 1: Title -->
+    <div class="slide active">
+        <h1>Creative Coding with Generative AI</h1>
+        <p class="subtitle">From Prompts to Prototypes</p>
+        <p style="margin-top: 60px; font-size: 1.5em;">AJ Villalobos</p>
+        <p style="font-size: 1.2em; color: #666;">Shiftcare | Bruskoffee | Arqen</p>
+        <div class="slide-number">1 / 15</div>
+    </div>
+
+    <!-- Slide 2: The Promise -->
+    <div class="slide">
+        <h2>The Promise</h2>
+        <div class="animate">
+            <p style="font-size: 2.5em; margin: 40px 0; line-height: 1.4;">
+                Build working apps<br>
+                <span class="highlight">10x faster</span><br>
+                with AI
+            </p>
+            <p style="font-size: 1.6em; color: #888; margin-top: 30px;">Not magic, but it feels like it</p>
+        </div>
+        <div class="slide-number">2 / 15</div>
+    </div>
+
+    <!-- Slide 3: Live Demo Preview -->
+    <div class="slide">
+        <h2>Live Demo</h2>
+        <div class="animate">
+            <h1 style="font-size: 3em; margin: 30px 0; color: #00d4ff;">"How Much?"</h1>
+            <p style="font-size: 1.8em; margin: 20px 0;">Expense Splitter for Barkada</p>
+            <p style="font-size: 1.6em; color: #888; margin-top: 40px;">Zero to working app</p>
+            <p style="font-size: 1.6em; color: #888;">In under 5 minutes</p>
+        </div>
+        <div class="slide-number">3 / 15</div>
+    </div>
+
+    <!-- Slide 4: The Old Way -->
+    <div class="slide">
+        <h2>The Old Way</h2>
+        <div class="vs-box old-way animate">
+            <ul style="font-size: 1.6em;">
+                <li>Environment Setup: <strong>2 hours</strong></li>
+                <li>Writing Code: <strong>4 hours</strong></li>
+                <li>Debugging: <strong>2 hours</strong></li>
+                <li>Styling & Polish: <strong>2 hours</strong></li>
+            </ul>
+            <p style="font-size: 2em; color: #ff4444; margin-top: 40px; text-align: center;">
+                Total: 8-10 hours for MVP
+            </p>
+        </div>
+        <div class="slide-number">4 / 15</div>
+    </div>
+
+    <!-- Slide 5: The AI Way -->
+    <div class="slide">
+        <h2>The AI Way</h2>
+        <div class="vs-box new-way animate">
+            <ul style="font-size: 1.6em;">
+                <li>Describe what you want: <strong>30 seconds</strong></li>
+                <li>Generate initial code: <strong>2-3 minutes</strong></li>
+                <li>Iterate and refine: <strong>2-3 minutes</strong></li>
+                <li>Polish and deploy: <strong>2 minutes</strong></li>
+            </ul>
+            <p style="font-size: 2em; color: #00ff88; margin-top: 40px; text-align: center;">
+                Total: 5-10 minutes to working prototype
+            </p>
+        </div>
+        <div class="slide-number">5 / 15</div>
+    </div>
+
+    <!-- Slide 6: What is Agentic Coding? -->
+    <div class="slide">
+        <h2>What is Agentic Coding?</h2>
+        <div class="animate">
+            <p style="font-size: 1.6em; margin: 30px 0; text-align: center;">
+                AI agents that actively participate in coding
+            </p>
+            
+            <div style="max-width: 700px; margin: 30px auto;">
+                <ul style="font-size: 1.4em; line-height: 1.8;">
+                    <li><strong>Understands</strong> your intent</li>
+                    <li><strong>Plans</strong> the implementation</li>
+                    <li><strong>Writes</strong> complete code</li>
+                    <li><strong>Refines</strong> based on feedback</li>
+                </ul>
+            </div>
+            
+            <p style="font-size: 1.6em; color: #00d4ff; text-align: center; margin-top: 30px;">
+                Not just suggestions - actual implementation
+            </p>
+        </div>
+        <div class="slide-number">6 / 15</div>
+    </div>
+
+    <!-- Slide 7: Demo Introduction -->
+    <div class="slide">
+        <h2>Let's Build: "How Much?"</h2>
+        <div class="animate">
+            <p style="font-size: 1.8em; margin: 20px 0;">The Classic Filipino Food Sharing Problem:</p>
+            <div style="max-width: 800px; margin: 30px auto; text-align: left;">
+                <p style="font-size: 1.5em; margin: 15px 0;">🍗 Juan orders Chicken BBQ - ₱180</p>
+                <p style="font-size: 1.5em; margin: 15px 0;">🍖 Pedro orders Pork BBQ - ₱200</p>
+                <p style="font-size: 1.5em; margin: 15px 0;">🍽️ Maria didn't order but <span style="color: #00d4ff;">"nakikain"</span> from both</p>
+            </div>
+            <p style="font-size: 1.8em; color: #ff0080; margin-top: 30px; text-align: center;">
+                How much should each person pay?
+            </p>
+            <p style="font-size: 1.4em; color: #888; text-align: center; margin-top: 15px;">
+                Let's solve this in 5 minutes with AI
+            </p>
+        </div>
+        <div class="slide-number">7 / 15</div>
+    </div>
+
+    <!-- Slide 8: How to Talk to AI -->
+    <div class="slide">
+        <h2>How to Talk to Your AI Developer</h2>
+        <div class="animate" style="text-align: center;">
+            <p style="font-size: 1.8em; margin: 30px 0;">
+                Be specific about what you want
+            </p>
+            <div class="code-block" style="margin: 30px auto;">
+                <p style="font-size: 1.4em; color: #ff4444;">❌ Vague: "Make an app for splitting bills"</p>
+            </div>
+            <div class="code-block" style="margin: 30px auto; border-color: #00ff88;">
+                <p style="font-size: 1.4em; color: #00ff88;">✅ Better: "Create an expense splitter that handles shared food orders where some people eat from others' plates"</p>
+            </div>
+            <p style="font-size: 1.5em; color: #888; margin-top: 40px;">
+                The clearer your request, the better the result
+            </p>
+        </div>
+        <div class="slide-number">8 / 15</div>
+    </div>
+
+    <!-- Slide 9: Pro Tip 1 -->
+    <div class="slide">
+        <h2>Pro Tip #1</h2>
+        <div class="animate" style="text-align: center;">
+            <h1 style="font-size: 2.5em; margin: 30px 0; color: #00d4ff;">Start Simple, Iterate Fast</h1>
+            <p style="font-size: 1.6em; margin: 20px 0; line-height: 1.4;">
+                Don't try to describe everything at once
+            </p>
+            <div style="margin-top: 30px;">
+                <p style="font-size: 1.5em; color: #888; margin: 15px 0;">First: "Create expense splitter"</p>
+                <p style="font-size: 1.5em; color: #888; margin: 15px 0;">Then: "Add shared food calculation"</p>
+                <p style="font-size: 1.5em; color: #888; margin: 15px 0;">Then: "Add Gcash QR codes"</p>
+            </div>
+        </div>
+        <div class="slide-number">9 / 15</div>
+    </div>
+
+    <!-- Slide 10: Pro Tip 2 -->
+    <div class="slide">
+        <h2>Pro Tip #2</h2>
+        <div class="animate" style="text-align: center;">
+            <h1 style="font-size: 2.5em; margin: 30px 0; color: #00d4ff;">Be Specific About Requirements</h1>
+            <p style="font-size: 1.6em; margin: 20px 0; line-height: 1.4;">
+                Details matter for better results
+            </p>
+            <div class="code-block" style="margin: 20px auto;">
+                <p style="font-size: 1.4em; color: #ff4444;">❌ "Add payment option"</p>
+            </div>
+            <div class="code-block" style="margin: 20px auto; border-color: #00ff88;">
+                <p style="font-size: 1.4em; color: #00ff88;">✅ "Add Gcash QR generator with amount"</p>
+            </div>
+        </div>
+        <div class="slide-number">10 / 15</div>
+    </div>
+
+    <!-- Slide 11: Pro Tip 3 -->
+    <div class="slide">
+        <h2>Pro Tip #3</h2>
+        <div class="animate" style="text-align: center;">
+            <h1 style="font-size: 2.5em; margin: 30px 0; color: #00d4ff;">Use AI to Learn New Tech</h1>
+            <p style="font-size: 1.6em; margin: 20px 0; line-height: 1.4;">
+                Perfect for exploring frameworks
+            </p>
+            <div style="margin-top: 30px;">
+                <p style="font-size: 1.5em; margin: 15px 0;">"Show me how to do this with Vue"</p>
+                <p style="font-size: 1.5em; margin: 15px 0;">"Convert this to TypeScript"</p>
+                <p style="font-size: 1.5em; margin: 15px 0;">"Add Tailwind CSS styling"</p>
+            </div>
+        </div>
+        <div class="slide-number">11 / 15</div>
+    </div>
+
+    <!-- Slide 12: Pro Tip 4 -->
+    <div class="slide">
+        <h2>Pro Tip #4</h2>
+        <div class="animate" style="text-align: center;">
+            <h1 style="font-size: 2.5em; margin: 30px 0; color: #00d4ff;">Review Generated Code</h1>
+            <p style="font-size: 1.6em; margin: 20px 0; line-height: 1.4;">
+                Understand what's created
+            </p>
+            <div style="margin-top: 30px;">
+                <p style="font-size: 1.5em; color: #00ff88; margin: 15px 0;">✅ Read the code</p>
+                <p style="font-size: 1.5em; color: #00ff88; margin: 15px 0;">✅ Test edge cases</p>
+                <p style="font-size: 1.5em; color: #00ff88; margin: 15px 0;">✅ Make it yours</p>
+            </div>
+            <p style="font-size: 1.4em; color: #888; margin-top: 20px;">AI is your partner, not your replacement</p>
+        </div>
+        <div class="slide-number">12 / 15</div>
+    </div>
+
+
+    <!-- Slide 13: Your Turn -->
+    <div class="slide">
+        <h2>Your Turn!</h2>
+        <div class="two-column animate" style="align-items: center; gap: 60px;">
+            <div class="column" style="text-align: center;">
+                <div class="qr-placeholder" style="margin: 0 auto;">
+                    [QR Code]<br>
+                    Get the code & slides
+                </div>
+                <p style="font-size: 1.4em; color: #888; margin-top: 20px;">
+                    GitHub: github.com/iamajvillalobos
+                </p>
+            </div>
+            
+            <div class="column">
+                <p style="font-size: 1.8em; margin-bottom: 30px; color: #00d4ff;">Start building TODAY</p>
+                <p style="font-size: 1.5em; margin: 15px 0;">✅ Clone the repo</p>
+                <p style="font-size: 1.5em; margin: 15px 0;">✅ Try Claude Code</p>
+                <p style="font-size: 1.5em; margin: 15px 0;">✅ Build your idea</p>
+                <p style="font-size: 1.6em; margin-top: 30px;">
+                    <span class="highlight">What problem will you solve?</span>
+                </p>
+            </div>
+        </div>
+        <div class="slide-number">13 / 15</div>
+    </div>
+
+    <!-- Slide 14: Key Takeaways -->
+    <div class="slide">
+        <h2>Key Takeaways</h2>
+        <div class="animate">
+            <p style="font-size: 1.5em; margin: 20px 0;"><span class="emoji" style="font-size: 1.5em;">🚀</span> 5-10x faster prototyping (realistic)</p>
+            <p style="font-size: 1.5em; margin: 20px 0;"><span class="emoji" style="font-size: 1.5em;">🧠</span> Focus on solving problems, not boilerplate</p>
+            <p style="font-size: 1.5em; margin: 20px 0;"><span class="emoji" style="font-size: 1.5em;">🤝</span> AI handles the tedious parts</p>
+            <p style="font-size: 1.5em; margin: 20px 0;"><span class="emoji" style="font-size: 1.5em;">⚡</span> Perfect for hackathons & rapid iteration</p>
+        </div>
+        <div class="slide-number">14 / 15</div>
+    </div>
+
+    <!-- Slide 15: Thank You -->
+    <div class="slide">
+        <h1>Salamat!</h1>
+        <div class="animate">
+            <p style="font-size: 2em; margin: 40px 0;">Questions?</p>
+            <p style="font-size: 1.6em; margin: 20px 0;">📧 hello@ajvillalobos.com</p>
+            <p style="font-size: 1.6em; margin: 20px 0;">💻 github.com/iamajvillalobos</p>
+            <p style="font-size: 1.8em; margin-top: 60px; color: #00d4ff;">
+                "The best time to start was yesterday.<br>
+                The second best time is now."
+            </p>
+        </div>
+        <div class="slide-number">15 / 15</div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="nav">
+        <button onclick="previousSlide()">← Previous</button>
+        <button onclick="nextSlide()">Next →</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+            
+            // Trigger animations
+            const animateElements = slides[currentSlide].querySelectorAll('.animate');
+            animateElements.forEach((el, index) => {
+                el.style.animation = 'none';
+                setTimeout(() => {
+                    el.style.animation = `fadeIn 0.6s ease-out ${index * 0.1}s both`;
+                }, 10);
+            });
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function previousSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                previousSlide();
+            } else if (e.key >= '0' && e.key <= '9') {
+                const slideIndex = parseInt(e.key) - 1;
+                if (slideIndex >= 0 && slideIndex < slides.length) {
+                    showSlide(slideIndex);
+                }
+            }
+        });
+
+        // Touch/swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+                nextSlide();
+            }
+            if (touchEndX > touchStartX + 50) {
+                previousSlide();
+            }
+        }
+    </script>
+</body>
+</html>
